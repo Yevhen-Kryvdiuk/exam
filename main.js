@@ -18,11 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
             articleList.render();
             return articleList;
         });
-    // document.addEventListener('click', (event) => {
-    //     const target = event.target;
-    //     if (target.tagName === 'BUTTON') {
-    //         promise.removeArticle(target.dataset);
-    //         promise.render();
-    //     }
-    // });
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.tagName === 'BUTTON') {
+            promise.then( articleList => {
+                // console.log(articleList);
+                // console.log(target.dataset.Article);
+                articleList.removeArticle(target.dataset.Article);
+                articleList.render();
+            })
+        }
+    });
 });

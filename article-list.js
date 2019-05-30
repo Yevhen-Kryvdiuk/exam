@@ -7,16 +7,11 @@ class ArticleList {
     }
 
     addArticle(article) {
-
         this.articles.add(article);
     }
 
-    removeArticle(articleTitle) {
-        this.articles.forEach((item) =>{
-            if (item.title === articleTitle) {
-                this.articles.delete(item);
-            }
-        });
+    removeArticle(article) {
+        this.articles.delete(article);
     }
 
     render () {
@@ -28,7 +23,7 @@ class ArticleList {
             const text = document.createElement('p');
             const btn = document.createElement('button');
             btn.innerText = 'delete';
-            btn.dataset.titleArticle = item.title; // не работает, было бы лучше если ыбло бы айди
+            btn.dataset.Article = item; // не работает, было бы лучше если ыбло бы айди
             header.innerText = item.title;
             article.appendChild(header);
             author.innerText = item.author;
